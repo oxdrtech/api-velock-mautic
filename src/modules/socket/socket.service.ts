@@ -1,6 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { io, Socket } from 'socket.io-client';
 import { CreatePlayerDto } from '../players/domain/dto/create-player.dto';
+import { DepositDto } from '../deposits/domain/dto/deposit.dto';
 
 @Injectable()
 export class SocketService implements OnModuleInit {
@@ -16,11 +17,11 @@ export class SocketService implements OnModuleInit {
     });
 
     this.socket.on('disconnect', () => {
-      console.log(`❌ Desconectado da API1`);
+      console.log(`❌ Desconectado da API`);
     });
   }
 
-  on(event: string, callback: (data: CreatePlayerDto) => void) {
+  on(event: string, callback: (data: CreatePlayerDto | DepositDto) => void) {
     this.socket.on(event, callback);
   }
 }
