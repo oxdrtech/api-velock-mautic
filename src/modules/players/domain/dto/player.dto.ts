@@ -1,4 +1,5 @@
-export class CreatePlayerDto {
+export class PlayerDto {
+  id: string;
   externalId: string;
   tenantId: string;
   affiliateId: string;
@@ -26,4 +27,6 @@ export class CreatePlayerDto {
   lastLoginDate: Date;
   lastAccessDate: Date;
   playerStatus: String;
+  createdAt: Date;
+  updatedAt: Date;
 }

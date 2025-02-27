@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { SocketService } from '../../socket/socket.service';
-import { CreatePlayerDto } from '../domain/dto/create-player.dto';
+import { SocketService } from '../../../socket/socket.service';
+import { PlayerDto } from '../../domain/dto/player.dto';
 
 @Injectable()
 export class PlayersListener implements OnModuleInit {
@@ -9,7 +9,7 @@ export class PlayersListener implements OnModuleInit {
   ) { }
 
   onModuleInit() {
-    this.socketService.on('player.created', (data: CreatePlayerDto) => {
+    this.socketService.on('player.created', (data: PlayerDto) => {
       console.log('🎉 Novo player criado:', data);
       // Aqui você pode processar os dados recebidos, salvar no banco, etc.
     });
