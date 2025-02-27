@@ -1,0 +1,29 @@
+export class CreatePlayerDto {
+  externalId: string;
+  tenantId: string;
+  affiliateId: string;
+  name: string;
+  email: string;
+  country: string;
+  language: string;
+  date: Date;
+  phoneCountryCode: string;
+  phone: string;
+  balance: number;
+  birthDate: Date;
+  firstDepositDate: Date;
+  firstDepositValue: number;
+  lastDepositDate: Date;
+  lastDepositValue: number;
+  totalDepositCount: number;
+  totalDepositValue: number;
+  lastWithdrawalDate: Date;
+  lastWithdrawalValue: number;
+  totalWithdrawalCount: number;
+  totalWithdrawalValue: number;
+  mostFrequentBetPair: string;
+  mostFrequentViewedPair: string;
+  lastLoginDate: Date;
+  lastAccessDate: Date;
+  playerStatus: String;
+}

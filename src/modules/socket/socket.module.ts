@@ -1,11 +1,13 @@
-import { Module } from '@nestjs/common';
-import { SocketGateway } from './infra/socket.gateway';
-// import { PlayerListener } from './application/listeners/players.listeners';
+import { Module, Global } from '@nestjs/common';
+import { SocketService } from './socket.service';
 
+@Global()
 @Module({
   providers: [
-    SocketGateway,
-    // PlayerListener,
+    SocketService,
+  ],
+  exports: [
+    SocketService,
   ],
 })
 export class SocketModule { }
