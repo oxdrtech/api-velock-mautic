@@ -13,5 +13,10 @@ export class DepositsListener implements OnModuleInit {
       console.log('🎉 Novo deposito criado:', data);
       // Aqui você pode processar os dados recebidos, salvar no banco, etc.
     });
+
+    this.socketService.on('deposit.payd', (data: DepositDto) => {
+      console.log('🎉 Novo deposito pago:', data);
+      // Aqui você pode processar os dados recebidos, salvar no banco, etc.
+    });
   }
 }
