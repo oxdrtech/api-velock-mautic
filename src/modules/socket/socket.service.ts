@@ -2,6 +2,7 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { io, Socket } from 'socket.io-client';
 import { DepositDto } from '../deposits/domain/dto/deposit.dto';
 import { PlayerDto } from '../players/domain/dto/player.dto';
+import { WithdrawDto } from '../withdraws/domain/dto/withdraw.dto';
 
 @Injectable()
 export class SocketService implements OnModuleInit {
@@ -21,7 +22,7 @@ export class SocketService implements OnModuleInit {
     });
   }
 
-  on(event: string, callback: (data: PlayerDto | DepositDto) => void) {
+  on(event: string, callback: (data: PlayerDto | DepositDto | WithdrawDto) => void) {
     this.socket.on(event, callback);
   }
 }
