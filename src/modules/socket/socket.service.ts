@@ -3,6 +3,7 @@ import { io, Socket } from 'socket.io-client';
 import { DepositDto } from '../deposits/domain/dto/deposit.dto';
 import { PlayerDto } from '../players/domain/dto/player.dto';
 import { WithdrawDto } from '../withdraws/domain/dto/withdraw.dto';
+import { LoginDto } from '../logins/domain/dto/login.dto';
 
 @Injectable()
 export class SocketService implements OnModuleInit {
@@ -22,7 +23,7 @@ export class SocketService implements OnModuleInit {
     });
   }
 
-  on(event: string, callback: (data: PlayerDto | DepositDto | WithdrawDto) => void) {
+  on(event: string, callback: (data: PlayerDto | DepositDto | WithdrawDto | LoginDto) => void) {
     this.socket.on(event, callback);
   }
 }
