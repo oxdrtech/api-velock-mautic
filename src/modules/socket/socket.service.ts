@@ -8,18 +8,19 @@ import { LoginDto } from '../logins/domain/dto/login.dto';
 @Injectable()
 export class SocketService implements OnModuleInit {
   private socket: Socket;
+  private readonly API_WEBHOOK = process.env.API_WEBHOOK_URL || "";
 
   constructor() {
-    this.socket = io('http://localhost:8080'); // URL da API1
+    this.socket = io(this.API_WEBHOOK);
   }
 
   onModuleInit() {
     this.socket.on('connect', () => {
-      console.log(`✅ Conectado ao WebSocket da API1 - ID: ${this.socket.id}`);
+      console.log(`✅ Conectado ao WebSocket da api-velock-webhook - ID: ${this.socket.id}`);
     });
 
     this.socket.on('disconnect', () => {
-      console.log(`❌ Desconectado da API`);
+      console.log(`❌ Desconectado da api-velock-webhook`);
     });
   }
 
