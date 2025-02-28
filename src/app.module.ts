@@ -6,6 +6,7 @@ import { DepositsModule } from './modules/deposits/deposits.module';
 import { WithdrawsModule } from './modules/withdraws/withdraws.module';
 import { LoginsModule } from './modules/logins/logins.module';
 import { ConfigModule } from '@nestjs/config';
+import { MauticModule } from './modules/mautic/mautic.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ConfigModule } from '@nestjs/config';
     DepositsModule,
     WithdrawsModule,
     LoginsModule,
+    MauticModule,
   ],
   controllers: [
     AppController,
