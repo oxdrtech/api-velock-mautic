@@ -13,7 +13,7 @@ export class MauticService {
   ) { }
 
   async createLead(data: any): Promise<any> {
-    const url = `${this.mauticBaseUrl}/api/contacts/new`;
+    const url = `${this.mauticBaseUrl}`;
     const auth = Buffer.from(`${this.username}:${this.password}`).toString('base64');
 
     try {
