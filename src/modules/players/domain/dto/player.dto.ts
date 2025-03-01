@@ -26,7 +26,7 @@ export class PlayerDto {
   mostFrequentViewedPair: string | null;
   lastLoginDate: Date | null;
   lastAccessDate: Date | null;
-  playerStatus: String;
+  playerStatus: string;
   createdAt: Date;
   updatedAt: Date;
 }

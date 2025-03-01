@@ -1,5 +1,5 @@
-import { PlayerDto } from "../dto/player.dto";
+import { PlayerLeadDto } from "../dto/player-lead.dto";
 
 export interface IPlayersRepositories {
-  createPlayersLead(data: PlayerDto): Promise<any>;
+  createPlayersLead(data: PlayerLeadDto): Promise<any>;
 }

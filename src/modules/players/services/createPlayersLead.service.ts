@@ -2,6 +2,7 @@ import { Inject, Injectable } from "@nestjs/common";
 import { PlayerDto } from "../domain/dto/player.dto";
 import { IPlayersRepositories } from "../domain/repositories/IPlayers.repositories";
 import { PLAYERS_SERVICE_TOKEN } from "../utils/playersServiceToken";
+import { PlayerLeadDto } from "../domain/dto/player-lead.dto";
 
 @Injectable()
 export class CreatePlayersLeadService {
@@ -11,8 +12,42 @@ export class CreatePlayersLeadService {
   ) { }
 
   async execute(data: PlayerDto): Promise<any> {
-    console.log('🎉 Novo player criado:', data);
-    const response = await this.playersRepositories.createPlayersLead(data)
+    const nameParts = data.name.trim().split(' ');
+    const firstname = nameParts.length > 1 ? nameParts[0] : data.name;
+    const lastname = nameParts.length > 1 ? nameParts.slice(1).join(' ') : null;
+
+    const phoneCountryCode = data.phoneCountryCode?.trim() || '';
+    const phoneNumber = data.phone?.trim() || '';
+    const phone = `${phoneCountryCode}${phoneNumber}`.trim() || null;
+
+    const updatedPlayer: PlayerLeadDto = {
+      externalid: data.externalId,
+      afiliado: data.affiliateId,
+      firstname,
+      lastname,
+      email: data.email,
+      registrationdate: data.date,
+      phone,
+      balance: data.balance,
+      birthdate: data.birthDate,
+      firstdepositdate: data.firstDepositDate,
+      firstdepositvalue: data.firstDepositValue,
+      lastdepositdate: data.lastDepositDate,
+      lastdepositvalue: data.lastDepositValue,
+      totaldepositcount: data.totalDepositCount,
+      totaldepositvalue: data.totalDepositValue,
+      lastwithdrawaldate: data.lastWithdrawalDate,
+      lastwithdrawalvalue: data.lastWithdrawalValue,
+      totalwithdrawalcount: data.totalWithdrawalCount,
+      totalwithdrawalvalue: data.totalWithdrawalValue,
+      lastbetdate: null, // tratar no futuro
+      lastLoginDate: data.lastLoginDate,
+      lastAccessDate: data.lastAccessDate,
+      playerStatus: data.playerStatus,
+    }
+
+    // console.log('🎉 Novo player criado:', updatedPlayer);
+    const response = await this.playersRepositories.createPlayersLead(updatedPlayer)
     return response;
   }
 }
