@@ -2,12 +2,10 @@ export class WithdrawDto {
   id: string;
   transactionId: string;
   amount: number;
-  method: string;
-  date: Date;
-  currency: string;
+  method: string | null;
+  date: Date | null;
+  currency: string | null;
   createdAt: Date;
   updatedAt: Date;
   playerId: string;
 }
-
-// TODO - adicional | null aos optionais
