@@ -9,3 +9,5 @@ export class WithdrawDto {
   updatedAt: Date;
   playerId: string;
 }
+
+// TODO - adicional | null aos optionais
