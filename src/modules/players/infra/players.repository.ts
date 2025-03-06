@@ -9,7 +9,13 @@ export class PlayersRepository implements IPlayersRepositories {
     private readonly MauticService: MauticService,
   ) { }
 
+  // TODO - adicionar tipo do retorno
   createPlayersLead(data: PlayerLeadDto): Promise<any> {
     return this.MauticService.createLead(data);
+  }
+
+  // TODO - adicionar tipo do retorno
+  createPlayersCampaign(idCampaign: number, idContact: number): Promise<any> {
+    return this.MauticService.createCampaign(idCampaign, idContact)
   }
 }

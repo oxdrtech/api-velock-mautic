@@ -13,12 +13,32 @@ export class MauticService {
   ) { }
 
   async createLead(data: any): Promise<any> {
-    const url = `${this.mauticBaseUrl}`;
+    const url = `${this.mauticBaseUrl}/contacts/new`;
     const auth = Buffer.from(`${this.username}:${this.password}`).toString('base64');
 
     try {
       const response = await firstValueFrom(
         this.httpService.post(url, data, {
+          headers: {
+            Authorization: `Basic ${auth}`,
+            'Content-Type': 'application/json',
+          },
+        })
+      );
+      return response.data;
+    } catch (error) {
+      console.error('Erro ao criar lead no Mautic:', error.response?.data || error.message);
+      throw error;
+    }
+  }
+
+  async createCampaign(idCampaign: number, idContact: number): Promise<any> {
+    const url = `${this.mauticBaseUrl}/campaigns/${idCampaign}/contact/${idContact}/add`;
+    const auth = Buffer.from(`${this.username}:${this.password}`).toString('base64');
+
+    try {
+      const response = await firstValueFrom(
+        this.httpService.post(url, {}, {
           headers: {
             Authorization: `Basic ${auth}`,
             'Content-Type': 'application/json',

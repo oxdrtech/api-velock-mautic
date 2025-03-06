@@ -1,0 +1,314 @@
+{
+  "contact": {
+    "isPublished": true,
+    "dateAdded": "2025-03-06T01:55:13+00:00",
+    "dateModified": null,
+    "createdBy": 4,
+    "createdByUser": "update api",
+    "modifiedBy": null,
+    "modifiedByUser": null,
+    "id": 329,
+    "points": 0,
+    "color": null,
+    "fields": {
+      "core": {
+        "playerstatus": {
+          "id": 67,
+          "group": "core",
+          "label": "Status",
+          "alias": "playerstatus",
+          "type": "select",
+          "properties": {
+            "list": [
+              { "label": "Ativo", "value": "ACTIVE" },
+              { "label": "Novo", "value": "NEW" }
+            ]
+          },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "externalid": {
+          "id": 65,
+          "group": "core",
+          "label": "ID Externo",
+          "alias": "externalid",
+          "type": "text",
+          "properties": [],
+          "value": "KJSOKDAAJAKSOJDASDJASODR",
+          "normalizedValue": "KJSOKDAAJAKSOJDASDJASODR"
+        },
+        "totalwithdrawalvalue": {
+          "id": 63,
+          "group": "core",
+          "label": "Valor Total de Saque",
+          "alias": "totalwithdrawalvalue",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "2" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "totalwithdrawalcount": {
+          "id": 62,
+          "group": "core",
+          "label": "N\u00ba Total de Saque",
+          "alias": "totalwithdrawalcount",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "lastwithdrawalvalue": {
+          "id": 61,
+          "group": "core",
+          "label": "Valor do Ultimo Saque",
+          "alias": "lastwithdrawalvalue",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "lastwithdrawaldate": {
+          "id": 60,
+          "group": "core",
+          "label": "Data do Ultimo Saque",
+          "alias": "lastwithdrawaldate",
+          "type": "date",
+          "properties": [],
+          "value": "2025-03-06",
+          "normalizedValue": "2025-03-06"
+        },
+        "totaldepositvalue": {
+          "id": 59,
+          "group": "core",
+          "label": "Valor total de deposito",
+          "alias": "totaldepositvalue",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "totaldepositcount": {
+          "id": 58,
+          "group": "core",
+          "label": "Numero Total de Depositos",
+          "alias": "totaldepositcount",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "saldo": {
+          "id": 57,
+          "group": "core",
+          "label": "Saldo",
+          "alias": "saldo",
+          "type": "number",
+          "properties": { "roundmode": "6", "scale": "2" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "afiliado": {
+          "id": 55,
+          "group": "core",
+          "label": "Afiliado",
+          "alias": "afiliado",
+          "type": "text",
+          "properties": [],
+          "value": "dasdasdasd",
+          "normalizedValue": "dasdasdasd"
+        },
+        "lastbetdate": {
+          "id": 53,
+          "group": "core",
+          "label": "lastBetDate",
+          "alias": "lastbetdate",
+          "type": "date",
+          "properties": [],
+          "value": "2025-03-06",
+          "normalizedValue": "2025-03-06"
+        },
+        "firstdepositvalue": {
+          "id": 51,
+          "group": "core",
+          "label": "firstDepositValue",
+          "alias": "firstdepositvalue",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "2" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "firstdepositdate": {
+          "id": 50,
+          "group": "core",
+          "label": "firstDepositDate",
+          "alias": "firstdepositdate",
+          "type": "date",
+          "properties": [],
+          "value": "2025-03-06",
+          "normalizedValue": "2025-03-06"
+        },
+        "lastdepositdate": {
+          "id": 49,
+          "group": "core",
+          "label": "lastDepositDate",
+          "alias": "lastdepositdate",
+          "type": "date",
+          "properties": [],
+          "value": null,
+          "normalizedValue": ""
+        },
+        "lastdepositvalue": {
+          "id": 48,
+          "group": "core",
+          "label": "lastDepositValue",
+          "alias": "lastdepositvalue",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "2" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "registrationdate": {
+          "id": 47,
+          "group": "core",
+          "label": "registrationDate",
+          "alias": "registrationdate",
+          "type": "date",
+          "properties": [],
+          "value": "2025-03-06",
+          "normalizedValue": "2025-03-06"
+        },
+        "birthdate": {
+          "id": 46,
+          "group": "core",
+          "label": "birthDate",
+          "alias": "birthdate",
+          "type": "date",
+          "properties": [],
+          "value": "2025-03-06",
+          "normalizedValue": "2025-03-06"
+        },
+        "balance": {
+          "id": 45,
+          "group": "core",
+          "label": "balance",
+          "alias": "balance",
+          "type": "number",
+          "properties": { "roundmode": "3", "scale": "2" },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "title": {
+          "id": 1,
+          "group": "core",
+          "label": "Title",
+          "alias": "title",
+          "type": "lookup",
+          "properties": { "list": ["Mr", "Mrs", "Miss"] },
+          "value": null,
+          "normalizedValue": ""
+        },
+        "firstname": {
+          "id": 2,
+          "group": "core",
+          "label": "First Name",
+          "alias": "firstname",
+          "type": "text",
+          "properties": [],
+          "value": "tring | null",
+          "normalizedValue": "tring | null"
+        },
+        "lastname": {
+          "id": 3,
+          "group": "core",
+          "label": "Last Name",
+          "alias": "lastname",
+          "type": "text",
+          "properties": [],
+          "value": "string | null",
+          "normalizedValue": "string | null"
+        },
+        "email": {
+          "id": 6,
+          "group": "core",
+          "label": "Email",
+          "alias": "email",
+          "type": "email",
+          "properties": [],
+          "value": "strinsag@string.com",
+          "normalizedValue": "strinsag@string.com"
+        },
+        "phone": {
+          "id": 8,
+          "group": "core",
+          "label": "Phone",
+          "alias": "phone",
+          "type": "tel",
+          "properties": [],
+          "value": "9889993999",
+          "normalizedValue": "9889993999"
+        },
+        "points": {
+          "id": 9,
+          "group": "core",
+          "label": "Points",
+          "alias": "points",
+          "type": "number",
+          "properties": [],
+          "value": null,
+          "normalizedValue": ""
+        },
+        "last_active": {
+          "id": 19,
+          "group": "core",
+          "label": "Date Last Active",
+          "alias": "last_active",
+          "type": "datetime",
+          "properties": [],
+          "value": null,
+          "normalizedValue": ""
+        }
+      },
+      "social": [],
+      "personal": [],
+      "professional": [],
+      "all": {
+        "id": "329",
+        "playerstatus": "NEW",
+        "externalid": "KJSOKDAAJAKSOJDASDJASODR",
+        "totalwithdrawalvalue": null,
+        "totalwithdrawalcount": null,
+        "lastwithdrawalvalue": null,
+        "lastwithdrawaldate": "2025-03-06",
+        "totaldepositvalue": null,
+        "totaldepositcount": null,
+        "saldo": null,
+        "afiliado": "dasdasdasd",
+        "lastbetdate": "2025-03-06",
+        "firstdepositvalue": null,
+        "firstdepositdate": "2025-03-06",
+        "lastdepositdate": null,
+        "lastdepositvalue": null,
+        "registrationdate": "2025-03-06",
+        "birthdate": "2025-03-06",
+        "balance": 0.0,
+        "title": null,
+        "firstname": "tring | null",
+        "lastname": "string | null",
+        "email": "strinsag@string.com",
+        "phone": "9889993999",
+        "points": 0,
+        "last_active": null
+      }
+    },
+    "lastActive": null,
+    "owner": null,
+    "ipAddresses": [],
+    "tags": [],
+    "utmtags": null,
+    "stage": null,
+    "dateIdentified": "2025-03-06T01:55:13+00:00",
+    "preferredProfileImage": null,
+    "doNotContact": [],
+    "frequencyRules": []
+  }
+}

@@ -44,10 +44,14 @@ export class CreatePlayersLeadService {
       lastLoginDate: data.lastLoginDate,
       lastAccessDate: data.lastAccessDate,
       playerStatus: data.playerStatus,
-    }
+    };
 
-    // console.log('🎉 Novo player criado:', updatedPlayer);
-    const response = await this.playersRepositories.createPlayersLead(updatedPlayer)
-    return response;
+    const lead = await this.playersRepositories.createPlayersLead(updatedPlayer);
+    if (!lead?.contact?.id) throw new Error('Falha ao recuperar o ID do contato.');
+
+    const campanha = await this.playersRepositories.createPlayersCampaign(2, lead.contact.id);
+    console.log('campanha', campanha);
+
+    return 'lead';
   }
 }
