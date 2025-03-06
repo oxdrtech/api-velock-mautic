@@ -3,6 +3,7 @@ import { PlayerDto } from "../domain/dto/player.dto";
 import { IPlayersRepositories } from "../domain/repositories/IPlayers.repositories";
 import { PLAYERS_SERVICE_TOKEN } from "../utils/playersServiceToken";
 import { PlayerLeadDto } from "../domain/dto/player-lead.dto";
+import { PlayerLeadResponseDto } from "../domain/dto/player-lead-response.dto";
 
 @Injectable()
 export class CreatePlayersLeadService {
@@ -11,7 +12,7 @@ export class CreatePlayersLeadService {
     private readonly playersRepositories: IPlayersRepositories,
   ) { }
 
-  async execute(data: PlayerDto): Promise<any> {
+  async execute(data: PlayerDto): Promise<PlayerLeadResponseDto> {
     const nameParts = data.name.trim().split(' ');
     const firstname = nameParts.length > 1 ? nameParts[0] : data.name;
     const lastname = nameParts.length > 1 ? nameParts.slice(1).join(' ') : null;
@@ -46,12 +47,6 @@ export class CreatePlayersLeadService {
       playerStatus: data.playerStatus,
     };
 
-    const lead = await this.playersRepositories.createPlayersLead(updatedPlayer);
-    if (!lead?.contact?.id) throw new Error('Falha ao recuperar o ID do contato.');
-
-    const campanha = await this.playersRepositories.createPlayersCampaign(2, lead.contact.id);
-    console.log('campanha', campanha);
-
-    return 'lead';
+    return await this.playersRepositories.createPlayersLead(updatedPlayer);
   }
 }

@@ -5,6 +5,7 @@ import { PLAYERS_SERVICE_TOKEN } from './utils/playersServiceToken';
 import { PlayersRepository } from './infra/players.repository';
 import { MauticModule } from '../mautic/mautic.module';
 import { PlayersListener } from './infra/players.listener';
+import { CreatePlayersCampaignService } from './services/createPlayersCampaign.service';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { PlayersListener } from './infra/players.listener';
   providers: [
     PlayersListener,
     CreatePlayersLeadService,
+    CreatePlayersCampaignService,
     {
       provide: PLAYERS_SERVICE_TOKEN,
       useClass: PlayersRepository,

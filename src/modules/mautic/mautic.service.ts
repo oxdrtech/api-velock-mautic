@@ -32,8 +32,8 @@ export class MauticService {
     }
   }
 
-  async createCampaign(idCampaign: number, idContact: number): Promise<any> {
-    const url = `${this.mauticBaseUrl}/campaigns/${idCampaign}/contact/${idContact}/add`;
+  async createCampaign(campaignId: number, contactId: number): Promise<any> {
+    const url = `${this.mauticBaseUrl}/campaigns/${campaignId}/contact/${contactId}/add`;
     const auth = Buffer.from(`${this.username}:${this.password}`).toString('base64');
 
     try {
@@ -47,7 +47,7 @@ export class MauticService {
       );
       return response.data;
     } catch (error) {
-      console.error('Erro ao criar lead no Mautic:', error.response?.data || error.message);
+      console.error('Erro ao criar campanha no Mautic:', error.response?.data || error.message);
       throw error;
     }
   }
