@@ -6,8 +6,6 @@ import { DepositsRepository } from './infra/deposits.repository';
 import { MauticModule } from '../mautic/mautic.module';
 import { PaydDepositsLeadService } from './services/paydDepositsLead.service';
 import { PlayersModule } from '../players/players.module';
-import { PLAYERS_SERVICE_TOKEN } from '../players/utils/playersServiceToken';
-import { PlayersRepository } from '../players/infra/players.repository';
 import { CreateDepositsCampaignService } from './services/createDepositsCampaign.service';
 import { CreateDepositsLeadService } from './services/createDepositsLead.service';
 import { PaydDepositsCampaignService } from './services/paydDepositsCampaign.service';

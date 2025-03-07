@@ -52,6 +52,8 @@ export class MauticService {
     }
   }
 
+
+  // TODO - customCreate deve ser modificado pra receber as rotas corretas
   async customCreate(data: any): Promise<any> {
     const url = `${this.mauticBaseUrl}/url...`;
     const auth = Buffer.from(`${this.username}:${this.password}`).toString('base64');
