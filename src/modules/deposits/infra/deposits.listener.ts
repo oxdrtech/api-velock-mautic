@@ -6,6 +6,7 @@ import { PlayerDto } from 'src/modules/players/domain/dto/player.dto';
 import { CreateDepositsCampaignService } from '../services/createDepositsCampaign.service';
 import { CreateDepositsLeadService } from '../services/createDepositsLead.service';
 import { CreatePlayersLeadService } from 'src/modules/players/services/createPlayersLead.service';
+import { PaydDepositsCampaignService } from '../services/paydDepositsCampaign.service';
 
 @Injectable()
 export class DepositsListener implements OnModuleInit {
@@ -15,6 +16,7 @@ export class DepositsListener implements OnModuleInit {
     private readonly createDepositsLeadService: CreateDepositsLeadService,
     private readonly createDepositsCampaignService: CreateDepositsCampaignService,
     private readonly paydDepositsLeadService: PaydDepositsLeadService,
+    private readonly paydDepositsCampaignService: PaydDepositsCampaignService,
   ) { }
 
   onModuleInit() {
@@ -24,8 +26,10 @@ export class DepositsListener implements OnModuleInit {
       await this.createDepositsCampaignService.execute(playerLead);
     });
 
-    this.socketService.on('deposit.payd', ({ data, updatedPlayerData }: { data: DepositDto, updatedPlayerData?: PlayerDto }) => {
-      this.paydDepositsLeadService.execute(data);
+    this.socketService.on('deposit.payd', async ({ data, updatedPlayerData }: { data: DepositDto, updatedPlayerData?: PlayerDto }) => {
+      const playerLead = await this.createPlayersLeadService.execute(updatedPlayerData);
+      const depositLead = await this.paydDepositsLeadService.execute(data);
+      await this.paydDepositsCampaignService.execute(playerLead);
     });
   }
 }

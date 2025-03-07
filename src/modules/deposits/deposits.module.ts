@@ -10,6 +10,7 @@ import { PLAYERS_SERVICE_TOKEN } from '../players/utils/playersServiceToken';
 import { PlayersRepository } from '../players/infra/players.repository';
 import { CreateDepositsCampaignService } from './services/createDepositsCampaign.service';
 import { CreateDepositsLeadService } from './services/createDepositsLead.service';
+import { PaydDepositsCampaignService } from './services/paydDepositsCampaign.service';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CreateDepositsLeadService } from './services/createDepositsLead.service
     CreateDepositsLeadService,
     CreateDepositsCampaignService,
     PaydDepositsLeadService,
+    PaydDepositsCampaignService,
     {
       provide: DEPOSITS_SERVICE_TOKEN,
       useClass: DepositsRepository,
