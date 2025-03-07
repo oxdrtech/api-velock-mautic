@@ -3,17 +3,23 @@ import { SocketService } from 'src/modules/socket/socket.service';
 import { CreateWithdrawsLeadService } from '../services/createWithdrawsLead.service';
 import { WithdrawDto } from '../domain/dto/withdraw.dto';
 import { PlayerDto } from 'src/modules/players/domain/dto/player.dto';
+import { CreatePlayersLeadService } from 'src/modules/players/services/createPlayersLead.service';
+import { CreateWithdrawsCampaignService } from '../services/createWithdrawsCampaign.service';
 
 @Injectable()
 export class WithdrawsListener implements OnModuleInit {
   constructor(
     private readonly socketService: SocketService,
+    private readonly createPlayersLeadService: CreatePlayersLeadService,
     private readonly createWithdrawsLeadService: CreateWithdrawsLeadService,
+    private readonly createWithdrawsCampaignService: CreateWithdrawsCampaignService,
   ) { }
 
   onModuleInit() {
-    this.socketService.on('withdraw.created', ({ data, updatedPlayerData }: { data: WithdrawDto, updatedPlayerData?: PlayerDto }) => {
-      this.createWithdrawsLeadService.execute(data);
+    this.socketService.on('withdraw.created', async ({ data, updatedPlayerData }: { data: WithdrawDto, updatedPlayerData?: PlayerDto }) => {
+      const playerLead = await this.createPlayersLeadService.execute(updatedPlayerData);
+      const withdrawLead = await this.createWithdrawsLeadService.execute(data);
+      await this.createWithdrawsCampaignService.execute(playerLead);
     });
   }
 }

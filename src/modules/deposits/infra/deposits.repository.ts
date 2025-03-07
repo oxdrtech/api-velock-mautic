@@ -18,7 +18,7 @@ export class DepositsRepository implements IDepositsRepositories {
   }
 
   paydDepositsLead(data: DepositDto): Promise<any> {
-    return this.MauticService.createLead(data);
+    return this.MauticService.customCreate(data);
   }
 
   paydDepositsCampaign(campaignId: number, contactId: number): Promise<{ success: boolean; }> {

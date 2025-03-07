@@ -28,10 +28,6 @@ import { PaydDepositsCampaignService } from './services/paydDepositsCampaign.ser
       provide: DEPOSITS_SERVICE_TOKEN,
       useClass: DepositsRepository,
     },
-    {
-      provide: PLAYERS_SERVICE_TOKEN,
-      useClass: PlayersRepository,
-    },
   ],
 })
 export class DepositsModule { }

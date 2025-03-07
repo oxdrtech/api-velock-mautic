@@ -8,8 +8,12 @@ export class WithdrawsRepository implements IWithdrawsRepositories {
   constructor(
     private readonly MauticService: MauticService,
   ) { }
-  
+
   createWithdrawsLead(data: WithdrawDto): Promise<any> {
-    return this.MauticService.createLead(data);
+    return this.MauticService.customCreate(data);
+  }
+
+  createWithdrawsCampaign(campaignId: number, contactId: number): Promise<{ success: boolean; }> {
+    return this.MauticService.createCampaign(campaignId, contactId);
   }
 }

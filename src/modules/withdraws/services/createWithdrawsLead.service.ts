@@ -11,8 +11,6 @@ export class CreateWithdrawsLeadService {
   ) { }
 
   async execute(data: WithdrawDto): Promise<any> {
-    console.log('🎉 Novo saque criado:', data);
-    const response = await this.withdrawsRepositories.createWithdrawsLead(data)
-    return response;
+    return await this.withdrawsRepositories.createWithdrawsLead(data);
   }
 }
