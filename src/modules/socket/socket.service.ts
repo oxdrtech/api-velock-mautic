@@ -25,7 +25,7 @@ export class SocketService implements OnModuleInit {
     });
   }
 
-  on(event: string, callback: (data: { data: PlayerDto | DepositDto | WithdrawDto | LoginDto, updatedPlayerData?: PlayerDto }) => void) {
+  on(event: string, callback: (data: { data: PlayerDto | DepositDto | WithdrawDto | LoginDto, updatedPlayer?: PlayerDto }) => void) {
     this.socket.on(event, callback);
   }
 }

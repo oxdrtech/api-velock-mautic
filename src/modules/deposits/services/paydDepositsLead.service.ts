@@ -11,8 +11,6 @@ export class PaydDepositsLeadService {
   ) { }
 
   async execute(data: DepositDto): Promise<any> {
-    console.log('🎉 Novo deposito pago:', data);
-    const response = await this.depositsRepositories.paydDepositsLead(data)
-    return response;
+    return await this.depositsRepositories.paydDepositsLead(data);
   }
 }
