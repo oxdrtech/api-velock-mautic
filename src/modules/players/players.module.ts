@@ -8,6 +8,7 @@ import { PlayersListener } from './infra/players.listener';
 import { CreatePlayersCampaignService } from './services/createPlayersCampaign.service';
 import { DepositsModule } from '../deposits/deposits.module';
 import { WithdrawsModule } from '../withdraws/withdraws.module';
+import { LoginsModule } from '../logins/logins.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { WithdrawsModule } from '../withdraws/withdraws.module';
     MauticModule,
     DepositsModule,
     WithdrawsModule,
+    LoginsModule,
   ],
   providers: [
     PlayersListener,
