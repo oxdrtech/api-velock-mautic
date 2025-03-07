@@ -2,6 +2,7 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { CreateLoginsLeadService } from '../services/createLoginsLead.service';
 import { SocketService } from 'src/modules/socket/socket.service';
 import { LoginDto } from '../domain/dto/login.dto';
+import { PlayerDto } from 'src/modules/players/domain/dto/player.dto';
 
 @Injectable()
 export class LoginsListener implements OnModuleInit {
@@ -11,7 +12,7 @@ export class LoginsListener implements OnModuleInit {
   ) { }
 
   onModuleInit() {
-    this.socketService.on('login.created', (data: LoginDto) => {
+    this.socketService.on('login.created', ({ data, updatedPlayerData }: { data: LoginDto, updatedPlayerData?: PlayerDto }) => {
       this.createLoginsLeadService.execute(data);
     });
   }

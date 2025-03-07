@@ -6,11 +6,13 @@ import { PlayersRepository } from './infra/players.repository';
 import { MauticModule } from '../mautic/mautic.module';
 import { PlayersListener } from './infra/players.listener';
 import { CreatePlayersCampaignService } from './services/createPlayersCampaign.service';
+import { DepositsModule } from '../deposits/deposits.module';
 
 @Module({
   imports: [
     SocketModule,
     MauticModule,
+    DepositsModule,
   ],
   providers: [
     PlayersListener,
@@ -21,5 +23,8 @@ import { CreatePlayersCampaignService } from './services/createPlayersCampaign.s
       useClass: PlayersRepository,
     },
   ],
+  exports: [
+    CreatePlayersLeadService,
+  ]
 })
 export class PlayersModule { }

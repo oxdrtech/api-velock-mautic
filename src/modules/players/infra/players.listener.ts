@@ -13,9 +13,8 @@ export class PlayersListener implements OnModuleInit {
   ) { }
 
   onModuleInit() {
-    this.socketService.on('player.created', async (data: PlayerDto) => {
+    this.socketService.on('player.created', async ({ data }: { data: PlayerDto }) => {
       const lead = await this.createPlayersLeadService.execute(data);
-
       await this.createPlayersCampaignService.execute(lead);
     });
   }

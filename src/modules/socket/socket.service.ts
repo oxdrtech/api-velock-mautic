@@ -19,13 +19,13 @@ export class SocketService implements OnModuleInit {
     this.socket.on('connect', () => {
       this.logger.log(`✅ Conectado ao WebSocket da api-velock-webhook - ID: ${this.socket.id}`);
     });
-    
+
     this.socket.on('disconnect', () => {
       this.logger.log(`❌ Desconectado da api-velock-webhook`);
     });
   }
 
-  on(event: string, callback: (data: PlayerDto | DepositDto | WithdrawDto | LoginDto) => void) {
+  on(event: string, callback: (data: { data: PlayerDto | DepositDto | WithdrawDto | LoginDto, updatedPlayerData?: PlayerDto }) => void) {
     this.socket.on(event, callback);
   }
 }
