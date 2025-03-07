@@ -9,7 +9,7 @@ export class DepositsRepository implements IDepositsRepositories {
     private readonly MauticService: MauticService,
   ) { }
 
-  createDepositsLead(data: any): Promise<any> {
+  createDepositsLead(data: DepositDto): Promise<any> {
     return this.MauticService.customCreate(data); // TODO - trabalhar aqui
   }
 

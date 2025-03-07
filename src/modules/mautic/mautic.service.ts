@@ -67,8 +67,9 @@ export class MauticService {
       );
       return response.data;
     } catch (error) {
-      console.error('Erro ao criar campanha no Mautic:', error.response?.data || error.message);
-      throw error;
+      // console.error('Erro ao criar campanha no Mautic:', error.response?.data || error.message);
+      console.error('Erro ao criar campanha no Mautic');
+      // throw error;
     }
   }
 }
