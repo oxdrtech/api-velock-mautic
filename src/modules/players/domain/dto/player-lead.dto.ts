@@ -19,16 +19,16 @@ export class PlayerLeadDto {
   totalwithdrawalcount: number | null;
   totalwithdrawalvalue: number | null;
   lastbetdate: Date | null;
-  lastLoginDate: Date | null;
-  lastAccessDate: Date | null;
-  playerStatus: string;
+  lastlogindate: Date | null;
+  lastaccessdate: Date | null;
+  playerstatus: string;
   customObjects?: {
     data: [
       {
-        alias: 'deposit' | 'saque';
+        alias: 'deposit' | 'saque' | 'login';
         data: [
           {
-            name: 'Depósito' | 'Saque';
+            name: 'Depósito' | 'Saque' | 'login';
             attributes: {
               id?: string | null;
               id1?: string | null;
@@ -37,14 +37,16 @@ export class PlayerLeadDto {
               method?: string | null;
               method1?: string | null;
               status?: 'pending' | 'paid' | null;
-              datadeposito?: Date | null;
-              datasaque?: Date | null;
               cupom?: string | null;
               firstdeposit?: boolean | null;
-            }
-          }
-        ]
-      }
-    ]
+              ip?: string | null;
+              datadeposito?: Date | null;
+              datasaque?: Date | null;
+              datalogin?: Date | null;
+            },
+          },
+        ],
+      },
+    ],
   }
 }
