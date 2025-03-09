@@ -14,7 +14,7 @@ export class WithdrawsListener implements OnModuleInit {
   ) { }
 
   onModuleInit() {
-    this.socketService.on('withdraw.created', async ({ data, updatedPlayer }: { data: WithdrawDto, updatedPlayer?: PlayerDto }) => {
+    this.socketService.on('withdraw.created', async ({ data, updatedPlayer }: { data: WithdrawDto, updatedPlayer: PlayerDto }) => {
       const lead = await this.createWithdrawsLeadService.execute(data, updatedPlayer);
       await this.createWithdrawsCampaignService.execute(lead);
     });

@@ -12,7 +12,7 @@ export class LoginsListener implements OnModuleInit {
   ) { }
 
   onModuleInit() {
-    this.socketService.on('login.created', async ({ data, updatedPlayer }: { data: LoginDto, updatedPlayer?: PlayerDto }) => {
+    this.socketService.on('login.created', async ({ data, updatedPlayer }: { data: LoginDto, updatedPlayer: PlayerDto }) => {
       await this.createLoginsLeadService.execute(data, updatedPlayer);
     });
   }

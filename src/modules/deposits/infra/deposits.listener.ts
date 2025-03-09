@@ -18,12 +18,12 @@ export class DepositsListener implements OnModuleInit {
   ) { }
 
   onModuleInit() {
-    this.socketService.on('deposit.created', async ({ data, updatedPlayer }: { data: DepositDto, updatedPlayer?: PlayerDto }) => {
+    this.socketService.on('deposit.created', async ({ data, updatedPlayer }: { data: DepositDto, updatedPlayer: PlayerDto }) => {
       const lead = await this.createDepositsLeadService.execute(data, updatedPlayer);
       await this.createDepositsCampaignService.execute(lead);
     });
 
-    this.socketService.on('deposit.payd', async ({ data, updatedPlayer }: { data: DepositDto, updatedPlayer?: PlayerDto }) => {
+    this.socketService.on('deposit.payd', async ({ data, updatedPlayer }: { data: DepositDto, updatedPlayer: PlayerDto }) => {
       const lead = await this.paydDepositsLeadService.execute(data, updatedPlayer);
       await this.paydDepositsCampaignService.execute(lead);
     });

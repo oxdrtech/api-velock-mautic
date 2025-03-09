@@ -13,7 +13,7 @@ export class PaydDepositsLeadService {
     private readonly depositsRepositories: IDepositsRepositories,
   ) { }
 
-  async execute(data: DepositDto, updatedPlayer?: PlayerDto): Promise<PlayerLeadResponseDto> {
+  async execute(data: DepositDto, updatedPlayer: PlayerDto): Promise<PlayerLeadResponseDto> {
     const nameParts = updatedPlayer.name.trim().split(' ');
     const firstname = nameParts.length > 1 ? nameParts[0] : updatedPlayer.name;
     const lastname = nameParts.length > 1 ? nameParts.slice(1).join(' ') : null;
