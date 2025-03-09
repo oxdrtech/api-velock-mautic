@@ -5,15 +5,16 @@ import { PlayerLeadResponseDto } from "src/modules/players/domain/dto/player-lea
 
 @Injectable()
 export class CreateDepositsCampaignService {
+  private readonly campaignId: number = Number(process.env.DEPOSITS_CREATED_CAMPAIGN_ID) || 3;
+
   constructor(
     @Inject(DEPOSITS_SERVICE_TOKEN)
     private readonly depositsRepositories: IDepositsRepositories,
   ) { }
 
   async execute(data: PlayerLeadResponseDto): Promise<{ success: boolean }> {
-    const campaignId = 3;
     const { contact: { id: contactId } } = data;
 
-    return await this.depositsRepositories.createDepositsCampaign(campaignId, contactId);
+    return await this.depositsRepositories.createDepositsCampaign(this.campaignId, contactId);
   }
 }

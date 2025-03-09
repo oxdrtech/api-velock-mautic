@@ -51,27 +51,4 @@ export class MauticService {
       throw error;
     }
   }
-
-
-  // TODO - customCreate deve ser modificado pra receber as rotas corretas
-  async customCreate(data: any): Promise<any> {
-    const url = `${this.mauticBaseUrl}/url...`;
-    const auth = Buffer.from(`${this.username}:${this.password}`).toString('base64');
-
-    try {
-      const response = await firstValueFrom(
-        this.httpService.post(url, {}, {
-          headers: {
-            Authorization: `Basic ${auth}`,
-            'Content-Type': 'application/json',
-          },
-        })
-      );
-      return response.data;
-    } catch (error) {
-      // console.error('Erro ao criar campanha no Mautic:', error.response?.data || error.message);
-      console.error('Erro ao criar campanha no Mautic');
-      // throw error;
-    }
-  }
 }

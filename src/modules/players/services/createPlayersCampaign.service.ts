@@ -5,15 +5,16 @@ import { PlayerLeadResponseDto } from "../domain/dto/player-lead-response.dto";
 
 @Injectable()
 export class CreatePlayersCampaignService {
+  private readonly campaignId: number = Number(process.env.PLAYERS_CREATE_CAMPAIGN_ID) || 2;
+
   constructor(
     @Inject(PLAYERS_SERVICE_TOKEN)
     private readonly playersRepositories: IPlayersRepositories,
   ) { }
 
   async execute(data: PlayerLeadResponseDto): Promise<{ success: boolean }> {
-    const campaignId = 2;
     const { contact: { id: contactId } } = data;
 
-    return await this.playersRepositories.createPlayersCampaign(campaignId, contactId);
+    return await this.playersRepositories.createPlayersCampaign(this.campaignId, contactId);
   }
 }

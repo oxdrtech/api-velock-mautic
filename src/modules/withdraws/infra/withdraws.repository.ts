@@ -1,7 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { MauticService } from "src/modules/mautic/mautic.service";
 import { IWithdrawsRepositories } from "../domain/repositories/IWithdraws.repositories";
-import { WithdrawDto } from "../domain/dto/withdraw.dto";
+import { PlayerLeadResponseDto } from "src/modules/players/domain/dto/player-lead-response.dto";
+import { PlayerLeadDto } from "src/modules/players/domain/dto/player-lead.dto";
 
 @Injectable()
 export class WithdrawsRepository implements IWithdrawsRepositories {
@@ -9,8 +10,8 @@ export class WithdrawsRepository implements IWithdrawsRepositories {
     private readonly MauticService: MauticService,
   ) { }
 
-  createWithdrawsLead(data: WithdrawDto): Promise<any> {
-    return this.MauticService.customCreate(data);
+  createWithdrawsLead(data: PlayerLeadDto): Promise<PlayerLeadResponseDto> {
+    return this.MauticService.createLead(data);
   }
 
   createWithdrawsCampaign(campaignId: number, contactId: number): Promise<{ success: boolean; }> {

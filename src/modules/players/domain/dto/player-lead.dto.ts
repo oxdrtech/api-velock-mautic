@@ -22,4 +22,29 @@ export class PlayerLeadDto {
   lastLoginDate: Date | null;
   lastAccessDate: Date | null;
   playerStatus: string;
+  customObjects?: {
+    data: [
+      {
+        alias: 'deposit' | 'saque';
+        data: [
+          {
+            name: 'Depósito' | 'Saque';
+            attributes: {
+              id?: string | null;
+              id1?: string | null;
+              value?: number | null;
+              value1?: number | null;
+              method?: string | null;
+              method1?: string | null;
+              status?: 'pending' | 'paid' | null;
+              datadeposito?: Date | null;
+              datasaque?: Date | null;
+              cupom?: string | null;
+              firstdeposit?: boolean | null;
+            }
+          }
+        ]
+      }
+    ]
+  }
 }

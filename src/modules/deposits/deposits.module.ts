@@ -4,11 +4,11 @@ import { DepositsListener } from './infra/deposits.listener';
 import { DEPOSITS_SERVICE_TOKEN } from './utils/depositsServiceToken';
 import { DepositsRepository } from './infra/deposits.repository';
 import { MauticModule } from '../mautic/mautic.module';
-import { PaydDepositsLeadService } from './services/paydDepositsLead.service';
 import { PlayersModule } from '../players/players.module';
 import { CreateDepositsCampaignService } from './services/createDepositsCampaign.service';
-import { CreateDepositsLeadService } from './services/createDepositsLead.service';
 import { PaydDepositsCampaignService } from './services/paydDepositsCampaign.service';
+import { CreateDepositsLeadService } from './services/createDepositsLead.service';
+import { PaydDepositsLeadService } from './services/paydDepositsLead.service';
 
 @Module({
   imports: [

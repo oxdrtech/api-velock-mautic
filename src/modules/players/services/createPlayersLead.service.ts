@@ -17,10 +17,6 @@ export class CreatePlayersLeadService {
     const firstname = nameParts.length > 1 ? nameParts[0] : data.name;
     const lastname = nameParts.length > 1 ? nameParts.slice(1).join(' ') : null;
 
-    const phoneCountryCode = data.phoneCountryCode?.trim() || '';
-    const phoneNumber = data.phone?.trim() || '';
-    const phone = `${phoneCountryCode}${phoneNumber}`.trim() || null;
-
     const updatedPlayer: PlayerLeadDto = {
       externalid: data.externalId,
       afiliado: data.affiliateId,
@@ -28,7 +24,7 @@ export class CreatePlayersLeadService {
       lastname,
       email: data.email,
       registrationdate: data.date,
-      phone,
+      phone: data.phone,
       balance: data.balance,
       birthdate: data.birthDate,
       firstdepositdate: data.firstDepositDate,

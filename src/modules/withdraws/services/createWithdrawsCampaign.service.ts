@@ -5,15 +5,16 @@ import { PlayerLeadResponseDto } from "src/modules/players/domain/dto/player-lea
 
 @Injectable()
 export class CreateWithdrawsCampaignService {
+  private readonly campaignId: number = Number(process.env.WITHDRAWS_CREATE_CAMPAIGN_ID) || 5;
+
   constructor(
     @Inject(WITHDRAWS_SERVICE_TOKEN)
     private readonly withdrawsRepositories: IWithdrawsRepositories,
   ) { }
 
   async execute(data: PlayerLeadResponseDto): Promise<{ success: boolean }> {
-    const campaignId = 3;
     const { contact: { id: contactId } } = data;
 
-    return await this.withdrawsRepositories.createWithdrawsCampaign(campaignId, contactId);
+    return await this.withdrawsRepositories.createWithdrawsCampaign(this.campaignId, contactId);
   }
 }
